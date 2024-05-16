@@ -1,0 +1,10 @@
+services:
+  rabbit:
+    image: rabbitmq:3-management
+    container_name: usagi
+    ports:
+      - 15672:15672
+      - 5672:5672
+    environment:
+      - RABBITMQ_DEFAULT_USER=seiji
+      - RABBITMQ_DEFAULT_PASS=foobar
