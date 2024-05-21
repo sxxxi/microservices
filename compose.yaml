@@ -1,10 +1,53 @@
 services:
-  rabbit:
+  rabbitmq:
     image: rabbitmq:3-management
-    container_name: usagi
+    hostname: rabbitmq
+    container_name: rabbitmq
     ports:
       - 15672:15672
       - 5672:5672
     environment:
       - RABBITMQ_DEFAULT_USER=seiji
       - RABBITMQ_DEFAULT_PASS=foobar
+      - RABBITMQ_DEFAULT_VHOST=/
+    networks:
+      - bobby
+
+  pg:
+    image: postgres
+    container_name: zou
+    restart: always
+    shm_size: 128mb
+    ports: 
+      - 5432:5432
+    environment:
+      POSTGRES_USER: seiji
+      POSTGRES_PASSWORD: foobar
+      POSTGRES_DB: pfdb 
+    volumes:
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+          size: 134217728 # 128*2^20 bytes = 128Mb
+
+
+  portfolio-frontend:
+    build: 
+      context: portfolio-revised
+    container_name: portfolio_frontend
+    environment:
+      - DOMAIN=portfolio-service
+
+  mediastore:
+    build:
+      context: mediastore
+    depends_on:
+      - rabbitmq
+    networks:
+      - bobby
+    # volumes:
+    #   - ./mediastore/src:/app/src
+
+networks:
+  bobby:
+

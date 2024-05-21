@@ -6,9 +6,16 @@
   <title>Document</title>
 </head>
 <body>
-  <form method="POST" action="http://localhost:8080/" enctype="multipart/form-data">
+  <form method="POST" action="http://localhost:3000/portfolio/projects/create" enctype="multipart/form-data">
+    <label for="title">Title: </label>
+    <input id="title" name="title" type="text"/>
+    <label for="description">Image: </label>
+    <input id="description" name="description" type="textarea"/>
+    
+
+
     <label for="img">Image: </label>
-    <input id="img" name="image" type="file"/>
+    <input id="img" name="avatar" type="file"/>
     <input type="submit" value="Submit" />
   </form> 
 </body>

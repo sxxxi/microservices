@@ -1,10 +1,10 @@
 package dev.sxxxi.mediastore.service
 
-import dev.sxxxi.portfolio.media.domain.Services
-import org.springframework.web.multipart.MultipartFile
+import dev.sxxxi.mediastore.data.Media
+import dev.sxxxi.mediastore.domain.Services
 
 interface MediaStoreService {
-    fun store(serviceName: Services, file: MultipartFile): String
+    fun store(serviceName: Services, media: Media): String
     fun get(key: String): String
     fun delete(key: String)
 }

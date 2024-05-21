@@ -1,4 +1,4 @@
-package dev.sxxxi.portfolio.media.domain
+package dev.sxxxi.mediastore.domain
 
 enum class Services(val path: String) {
     PROJECTS("projects"),

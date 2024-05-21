@@ -1,0 +1,28 @@
+{
+  "name": "portfolio-service",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run nodemon"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.12",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.14.0",
+    "@types/amqplib": "^0.10.5",
+    "@types/formidable": "v3",
+    "amqplib": "^0.10.4",
+    "express": "^4.19.2",
+    "formidable": "v3",
+    "prisma": "^5.14.0"
+  }
+}
